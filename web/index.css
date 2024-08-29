@@ -1,0 +1,105 @@
+:root {
+  font-size: 62.5%;
+}
+
+textarea,
+input {
+  border: none;
+  outline: none;
+  resize: vertical;
+  background: none;
+  font: inherit;
+  color: inherit;
+  width: 100%;
+  height: auto;
+  box-shadow: none;
+  overflow: auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: initial;
+  font-family: system-ui, sans-serif;
+}
+
+.blog-post {
+  position: relative;
+  padding: 25px;
+  margin: 25px;
+  max-width: 600px;
+  background-color: aquamarine;
+  border-radius: 25px;
+}
+
+.blog-post__title {
+  margin-bottom: 10px;
+}
+
+.blog-post__author {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+
+.new-post {
+  margin: 25px;
+  padding: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  max-width: 500px;
+  gap: 15px;
+  font-size: 2rem !important;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif !important;
+}
+
+.new-post__title {
+  grid-column: span 3;
+  grid-row: 1;
+  position: relative;
+}
+.new-post__title label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-left: 10px;
+}
+.new-post__title input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1.5px solid black;
+}
+
+.new-post__author {
+  grid-column: span 3;
+  grid-row: 2;
+  position: relative;
+}
+.new-post__author label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-left: 10px;
+}
+.new-post__author input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1.5px solid black;
+}
+
+.new-post__content {
+  grid-column: span 3;
+  grid-row: 3;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1.5px solid black;
+}
+
+#send-new-post {
+  grid-column: 3;
+  grid-row: 4;
+}/*# sourceMappingURL=index.css.map */

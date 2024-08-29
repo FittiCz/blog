@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="index.css">
+        <title>Blog</title>
+    </head>
+
+    <body>
+        <div class="new-post">
+            <div class="new-post__title">
+                <label for="title">Titulek</label>
+                <input type="text" name="title" id="title">
+            </div>
+            <div class="new-post__author">
+                <label for="author">Autor</label>
+                <input type="text" name="author" id="author">
+            </div>
+            <textarea class="new-post__content" rows="10"></textarea>
+            <button id="send-new-post">Send</button>
+        </div>
+        <template id="blog-post-template">
+            <div class="blog-post">
+                <div class="blog-post__title">
+                    můj první příspěvěk
+                </div>
+                <div class="blog-post__author">
+                    autor: <span class="text"></span>
+                </div>
+                <div class="blog-post__content">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea aliquam ratione esse sapiente repellendus nam, ut praesentium labore assumenda facilis, neque totam, officiis aperiam deleniti sint amet aut quod!
+                    Maiores officia esse sit veritatis ducimus nostrum, error magnam labore dolor tenetur, accusamus sunt corrupti commodi explicabo voluptatum quaerat. Atque reiciendis, sint quidem hic ex voluptates ipsam doloribus illum sunt.
+                </div>
+            </div>
+        </template>
+        <div id="blog-posts">
+
+        </div>
+        <button class="load">načti příspěvky</button>
+
+        <script src="script.js"></script>
+
+    </body>
+
+</html>

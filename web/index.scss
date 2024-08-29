@@ -1,0 +1,92 @@
+:root {
+    font-size: 62.5%;
+}
+
+textarea,
+input {
+    border: none;
+    outline: none;
+    resize: vertical;
+    background: none;
+    font: inherit;
+    color: inherit;
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+    overflow: auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: initial;
+    font-family: system-ui, sans-serif;
+}
+
+.blog-post {
+    position: relative;
+    padding: 25px;
+    margin: 25px;
+    max-width: 600px;
+    background-color: aquamarine;
+    border-radius: 25px;
+}
+.blog-post__title {
+    margin-bottom: 10px;
+}
+.blog-post__author {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+}
+
+@mixin v-gridu($col, $row) {
+    grid-column: $col;
+    grid-row: $row;
+}
+@mixin muj-input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1.5px solid black;
+}
+@mixin animovany-label {
+    position: relative;
+    & label {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        padding-left: 10px;
+    }
+    & input {
+        @include muj-input();
+    }
+}
+.new-post {
+    margin: 25px;
+    padding: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 500px;
+    gap: 15px;
+    font-size: 2rem !important;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif !important;
+}
+.new-post__title {
+    @include v-gridu(span 3, 1);
+    @include animovany-label();
+}
+.new-post__author {
+    @include v-gridu(span 3, 2);
+    @include animovany-label();
+}
+.new-post__content {
+    @include v-gridu(span 3, 3);
+    @include muj-input();
+}
+#send-new-post {
+    @include v-gridu(3, 4);
+}
