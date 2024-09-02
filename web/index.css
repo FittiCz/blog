@@ -27,25 +27,6 @@ body {
   font-family: system-ui, sans-serif;
 }
 
-.blog-post {
-  position: relative;
-  padding: 25px;
-  margin: 25px;
-  max-width: 600px;
-  background-color: aquamarine;
-  border-radius: 25px;
-}
-
-.blog-post__title {
-  margin-bottom: 10px;
-}
-
-.blog-post__author {
-  position: absolute;
-  top: 25px;
-  right: 25px;
-}
-
 .new-post {
   margin: 25px;
   padding: 25px;
@@ -102,4 +83,27 @@ body {
 #send-new-post {
   grid-column: 3;
   grid-row: 4;
+}
+
+.blog-post {
+  position: relative;
+  padding: 25px;
+  margin: 25px;
+  max-width: 600px;
+  background-color: aquamarine;
+  border-radius: 25px;
+}
+
+.blog-post__title {
+  margin-bottom: 10px;
+}
+
+.blog-post__author {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+
+.no-posts {
+  display: none;
 }/*# sourceMappingURL=index.css.map */

@@ -27,23 +27,6 @@ body {
     font-family: system-ui, sans-serif;
 }
 
-.blog-post {
-    position: relative;
-    padding: 25px;
-    margin: 25px;
-    max-width: 600px;
-    background-color: aquamarine;
-    border-radius: 25px;
-}
-.blog-post__title {
-    margin-bottom: 10px;
-}
-.blog-post__author {
-    position: absolute;
-    top: 25px;
-    right: 25px;
-}
-
 @mixin v-gridu($col, $row) {
     grid-column: $col;
     grid-row: $row;
@@ -89,4 +72,24 @@ body {
 }
 #send-new-post {
     @include v-gridu(3, 4);
+}
+.blog-post {
+    position: relative;
+    padding: 25px;
+    margin: 25px;
+    max-width: 600px;
+    background-color: aquamarine;
+    border-radius: 25px;
+}
+.blog-post__title {
+    margin-bottom: 10px;
+}
+.blog-post__author {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+}
+
+.no-posts {
+    display: none;
 }
