@@ -12,6 +12,7 @@ const API_METHODS = {
 
 const blogPostTemplate = document.getElementById("blog-post-template")
 const blogPostBox = document.getElementById("blog-posts")
+const noPosts = blogPostBox.querySelector(".no-posts")
 const titleInput = document.getElementById("title")
 const authorInput = document.getElementById("author")
 const textarea = document.querySelector(".new-post__content")
@@ -34,11 +35,26 @@ async function sendBlogPost() {
     })
 }
 
+function resetPosts() {
+    const vsechnyBlogPosty = blogPostBox.querySelectorAll(".blog-post")
+    for (const blogPost of vsechnyBlogPosty) {
+        blogPostBox.removeChild(blogPost)
+    }
+}
+
 async function seznamPostu() {
     const endPointUrl = API_ADDRESS + API_ENDPOINTY.SEZNAM
     const odpovedServeru = await fetch(endPointUrl)
     const data = await odpovedServeru.json()
     console.log(data);
+    if (data.length === 0) {
+        resetPosts()
+        console.log("nic tu není");
+        noPosts.style.display = "block"
+        return
+    }
+    noPosts.style.display = "none"
+    resetPosts()
     for (const blogPost of data) {
         const newBlogPost = createBlogPost(blogPost)
         blogPostBox.appendChild(newBlogPost)

@@ -32,6 +32,7 @@ server.get("/seznam", async (req, res) => {
         nactenePrispevky.push(JSON.parse(obsahSouboru))
     }
     res.send(nactenePrispevky)
+    // res.send(JSON.stringify([]))
 })
 
 server.post("/pridejprispevek", async (req, res) => {
