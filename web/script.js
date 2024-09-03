@@ -3,7 +3,8 @@ const API_ADDRESS = "http://127.0.0.1:8080"
 
 const API_ENDPOINTY = {
     SEZNAM: "/seznam",
-    PRIDEJ_PRISPEVEK: "/pridejprispevek"
+    PRIDEJ_PRISPEVEK: "/pridejprispevek",
+    VYMAZ_PRISPEVEK: "/vymazprispevek"
 }
 const API_METHODS = {
     POST: "POST",
@@ -15,7 +16,7 @@ const blogPostBox = document.getElementById("blog-posts")
 const noPosts = blogPostBox.querySelector(".no-posts")
 const titleInput = document.getElementById("title")
 const authorInput = document.getElementById("author")
-const textarea = document.querySelector(".new-post__content")
+const textareaInput = document.querySelector(".new-post__content")
 const sendButton = document.getElementById("send-new-post")
 
 sendButton.addEventListener("click", sendBlogPost)
@@ -23,7 +24,7 @@ async function sendBlogPost() {
     const data = {
         title: titleInput.value,
         author: authorInput.value,
-        content: textarea.value,
+        content: textareaInput.value,
         slug: titleInput.value
     }
     await fetch(`${API_ADDRESS}${API_ENDPOINTY.PRIDEJ_PRISPEVEK}`, {
@@ -33,6 +34,10 @@ async function sendBlogPost() {
             "Content-Type": "application/json",
         },
     })
+    titleInput.value = ""
+    authorInput.value = ""
+    textareaInput.value = ""
+    seznamPostu()
 }
 
 function resetPosts() {
@@ -63,13 +68,21 @@ async function seznamPostu() {
 
 function createBlogPost(blogData) {
     const newBlogPost = blogPostTemplate.content.cloneNode(true)
+    newBlogPost.querySelector(".blog-post__delete-icon").addEventListener("click", () => {
+        deleteBlogPost(blogData.slug)
+    })
     newBlogPost.querySelector(".blog-post__title").textContent = blogData.title
     newBlogPost.querySelector(".blog-post__author .text").textContent = blogData.author
     newBlogPost.querySelector(".blog-post__content").textContent = blogData.content
     return newBlogPost
 }
 
+async function deleteBlogPost(blogPostSlug) {
+    await fetch(API_ADDRESS + API_ENDPOINTY.VYMAZ_PRISPEVEK + "?slug=" + blogPostSlug, {
+        method: API_METHODS.POST
+    })
+    seznamPostu()
+}
 
-
-document.querySelector(".load").onclick = seznamPostu
+document.getElementById("load").onclick = seznamPostu
 window.onload = seznamPostu

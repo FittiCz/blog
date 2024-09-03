@@ -1,3 +1,9 @@
+$color-primary: #89d2a3;
+$color-text: #efefef;
+$color-background: #333333;
+$color-komplementarni: #d65780;
+$color-secondary: #416165;
+
 :root {
     font-size: 62.5%;
 }
@@ -15,16 +21,33 @@ input {
     box-shadow: none;
     overflow: auto;
 }
+button {
+    border: none;
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    // background-color: rgba(43, 129, 0, 0.158) !important;
+}
+
+::selection {
+    background-color: $color-primary;
+    color: $color-komplementarni;
 }
 
 body {
     font-size: initial;
     font-family: system-ui, sans-serif;
+    color: $color-text;
+}
+
+main {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: $color-background;
 }
 
 @mixin v-gridu($col, $row) {
@@ -49,7 +72,7 @@ body {
     }
 }
 .new-post {
-    margin: 25px;
+    margin: 25px auto;
     padding: 25px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -72,13 +95,15 @@ body {
 }
 #send-new-post {
     @include v-gridu(3, 4);
+    @include btn();
 }
 .blog-post {
+    min-height: 150px;
+    margin: 0 auto;
     position: relative;
     padding: 25px;
     margin: 25px;
-    max-width: 600px;
-    background-color: aquamarine;
+    background-color: $color-secondary;
     border-radius: 25px;
 }
 .blog-post__title {
@@ -88,6 +113,19 @@ body {
     position: absolute;
     top: 25px;
     right: 25px;
+}
+
+.blog-post__delete-icon {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    padding: 6px;
+    display: grid;
+    &:hover {
+        border-radius: 200px;
+        background-color: $color-komplementarni;
+        cursor: pointer;
+    }
 }
 
 .no-posts {

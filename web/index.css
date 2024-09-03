@@ -16,19 +16,41 @@ input {
   overflow: auto;
 }
 
+button {
+  border: none;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+::-moz-selection {
+  background-color: #89d2a3;
+  color: #d65780;
+}
+
+::selection {
+  background-color: #89d2a3;
+  color: #d65780;
+}
+
 body {
   font-size: initial;
   font-family: system-ui, sans-serif;
+  color: #efefef;
+}
+
+main {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #333333;
 }
 
 .new-post {
-  margin: 25px;
+  margin: 25px auto;
   padding: 25px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -77,20 +99,28 @@ body {
   grid-row: 3;
   padding: 10px;
   border-radius: 10px;
-  border: 1.5px solid black;
+  border: 1.5px solid #89d2a3;
 }
 
 #send-new-post {
   grid-column: 3;
   grid-row: 4;
+  background-color: #89d2a3;
+  padding: 5px;
+  border-radius: 10px;
+}
+#send-new-post:hover {
+  background-color: #d65780;
+  cursor: pointer;
 }
 
 .blog-post {
+  min-height: 150px;
+  margin: 0 auto;
   position: relative;
   padding: 25px;
   margin: 25px;
-  max-width: 600px;
-  background-color: aquamarine;
+  background-color: #416165;
   border-radius: 25px;
 }
 
@@ -102,6 +132,19 @@ body {
   position: absolute;
   top: 25px;
   right: 25px;
+}
+
+.blog-post__delete-icon {
+  position: absolute;
+  right: 25px;
+  bottom: 25px;
+  padding: 6px;
+  display: grid;
+}
+.blog-post__delete-icon:hover {
+  border-radius: 200px;
+  background-color: #d65780;
+  cursor: pointer;
 }
 
 .no-posts {

@@ -9,38 +9,45 @@
     </head>
 
     <body>
-        <div class="new-post">
-            <div class="new-post__title">
-                <label for="title">Titulek</label>
-                <input type="text" name="title" id="title">
-            </div>
-            <div class="new-post__author">
-                <label for="author">Autor</label>
-                <input type="text" name="author" id="author">
-            </div>
-            <textarea class="new-post__content" rows="10"></textarea>
-            <button id="send-new-post">Send</button>
-        </div>
-        <template id="blog-post-template">
-            <div class="blog-post">
-                <div class="blog-post__title">
-                    můj první příspěvěk
+        <main>
+            <div class="new-post">
+                <div class="new-post__title">
+                    <label for="title">Titulek</label>
+                    <input type="text" name="title" id="title">
                 </div>
-                <div class="blog-post__author">
-                    autor: <span class="text"></span>
+                <div class="new-post__author">
+                    <label for="author">Autor</label>
+                    <input type="text" name="author" id="author">
                 </div>
-                <div class="blog-post__content">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea aliquam ratione esse sapiente repellendus nam, ut praesentium labore assumenda facilis, neque totam, officiis aperiam deleniti sint amet aut quod!
-                    Maiores officia esse sit veritatis ducimus nostrum, error magnam labore dolor tenetur, accusamus sunt corrupti commodi explicabo voluptatum quaerat. Atque reiciendis, sint quidem hic ex voluptates ipsam doloribus illum sunt.
+                <textarea class="new-post__content" rows="10"></textarea>
+                <button id="send-new-post">Send</button>
+            </div>
+            <template id="blog-post-template">
+                <div class="blog-post">
+                    <h3 class="blog-post__title">
+                        můj první příspěvěk
+                    </h3>
+                    <div class="blog-post__author">
+                        autor: <span class="text"></span>
+                    </div>
+                    <div class="blog-post__content">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ea aliquam ratione esse sapiente repellendus nam, ut praesentium labore assumenda facilis, neque totam, officiis aperiam deleniti sint amet aut quod!
+                        Maiores officia esse sit veritatis ducimus nostrum, error magnam labore dolor tenetur, accusamus sunt corrupti commodi explicabo voluptatum quaerat. Atque reiciendis, sint quidem hic ex voluptates ipsam doloribus illum sunt.
+                    </div>
+                    <div class="blog-post__delete-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#000">
+                            <path d="m376-300 104-104 104 104 56-56-104-104 104-104-56-56-104 104-104-104-56 56 104 104-104 104 56 56Zm-96 180q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520Zm-400 0v520-520Z" />
+                        </svg>
+                    </div>
+                </div>
+            </template>
+            <div id="blog-posts">
+                <div class="no-posts">
+                    <p>Nebyly nalezeny žádné příspěvky!</p>
                 </div>
             </div>
-        </template>
-        <div id="blog-posts">
-            <div class="no-posts">
-                <p>Nebyly nalezeny žádné příspěvky!</p>
-            </div>
-        </div>
-        <button class="load">načti příspěvky</button>
+            <button id="load">načti příspěvky</button>
+        </main>
 
         <script src="script.js"></script>
 

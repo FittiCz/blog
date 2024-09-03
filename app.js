@@ -50,6 +50,22 @@ server.post("/vytvorSlug", async (req, res) => {
         slug: createSlug(req.body.nazevProSlug)
     })
 })
+server.post("/vymazprispevek", async (req, res) => {
+    const { slug } = req.query
+
+    console.log("Mazu prispevek")
+    const soubory = await fileSystem.readdir("./prispevky")
+    console.log(soubory)
+    const souborExistuje = soubory.includes(slug + ".json")
+    if (souborExistuje) {
+        console.log(`Soubor ${slug} existuje`)
+        await fileSystem.rm(`./prispevky/${slug}.json`)
+        res.status(200).send()
+        return
+    }
+    console.log(`Soubor ${slug} neexistuje`)
+    res.status(404).send()
+})
 
 server.listen(port, () => {
     console.log("aplikace jede na portu" + port);
