@@ -86,3 +86,17 @@ async function deleteBlogPost(blogPostSlug) {
 
 document.getElementById("load").onclick = seznamPostu
 window.onload = seznamPostu
+
+const inputs = document.querySelectorAll(".animated-label input")
+for (const input of inputs) {
+    const label = input.parentElement.querySelector("label")
+    input.addEventListener("focusin", () => {
+        label.classList.add("move-up")
+    })
+    input.addEventListener("focusout", () => {
+        if (input.value) {
+            return
+        }
+        label.classList.remove("move-up")
+    })
+}

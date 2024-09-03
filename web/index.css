@@ -67,14 +67,20 @@ main {
 }
 .new-post__title label {
   position: absolute;
+  transition: top 350ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
   top: 50%;
+  left: 20px;
   transform: translateY(-50%);
-  padding-left: 10px;
+  padding-inline: 10px;
+}
+.new-post__title label.move-up {
+  top: 0;
+  background-color: #333333;
 }
 .new-post__title input {
   padding: 10px;
   border-radius: 10px;
-  border: 1.5px solid black;
+  border: 1.5px solid #89d2a3;
 }
 
 .new-post__author {
@@ -84,14 +90,20 @@ main {
 }
 .new-post__author label {
   position: absolute;
+  transition: top 350ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
   top: 50%;
+  left: 20px;
   transform: translateY(-50%);
-  padding-left: 10px;
+  padding-inline: 10px;
+}
+.new-post__author label.move-up {
+  top: 0;
+  background-color: #333333;
 }
 .new-post__author input {
   padding: 10px;
   border-radius: 10px;
-  border: 1.5px solid black;
+  border: 1.5px solid #89d2a3;
 }
 
 .new-post__content {
