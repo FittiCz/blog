@@ -19,6 +19,28 @@ const authorInput = document.getElementById("author")
 const textareaInput = document.querySelector(".new-post__content")
 const sendButton = document.getElementById("send-new-post")
 
+/**
+ * 
+ * @param {HTMLElement} input Input, který zvalidovat
+ * @returns 
+ */
+function validateInput(input) {
+    if (!input.value) {
+        input.classList.add("invalid")
+        return false
+    } else {
+        input.classList.remove("invalid")
+        return true
+    }
+}
+const vsechnyinputy = document.querySelectorAll(".new-post input, .new-post textarea")
+
+for (const jedenInput of vsechnyinputy) {
+    jedenInput.addEventListener("input", (event) => {
+        validateInput(event.target)
+    })
+}
+
 sendButton.addEventListener("click", sendBlogPost)
 async function sendBlogPost() {
     const data = {
@@ -26,6 +48,10 @@ async function sendBlogPost() {
         author: authorInput.value,
         content: textareaInput.value,
         slug: titleInput.value
+    }
+    const validace = validateInput(titleInput) & validateInput(authorInput) & validateInput(textareaInput)
+    if (!validace) {
+        return;
     }
     await fetch(`${API_ADDRESS}${API_ENDPOINTY.PRIDEJ_PRISPEVEK}`, {
         method: API_METHODS.POST,

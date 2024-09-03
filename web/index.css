@@ -82,6 +82,9 @@ main {
   border-radius: 10px;
   border: 1.5px solid #89d2a3;
 }
+.new-post__title input.invalid {
+  border: 1.5px solid #d65780;
+}
 
 .new-post__author {
   grid-column: span 3;
@@ -105,6 +108,9 @@ main {
   border-radius: 10px;
   border: 1.5px solid #89d2a3;
 }
+.new-post__author input.invalid {
+  border: 1.5px solid #d65780;
+}
 
 .new-post__content {
   grid-column: span 3;
@@ -112,6 +118,9 @@ main {
   padding: 10px;
   border-radius: 10px;
   border: 1.5px solid #89d2a3;
+}
+.new-post__content.invalid {
+  border: 1.5px solid #d65780;
 }
 
 #send-new-post {

@@ -58,6 +58,9 @@ main {
     padding: 10px;
     border-radius: 10px;
     border: 1.5px solid $color-primary;
+    &.invalid {
+        border: 1.5px solid $color-komplementarni;
+    }
 }
 
 @mixin btn {
